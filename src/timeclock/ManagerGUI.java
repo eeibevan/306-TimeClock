@@ -13,7 +13,7 @@ import javax.swing.*;
 
 /**
  * @author Evan Black and Elizabeth Stanton
- * GUI for the Main Manager Page 
+ * GUI for the Main Manager Page.
  */
 
 public class ManagerGUI extends JFrame

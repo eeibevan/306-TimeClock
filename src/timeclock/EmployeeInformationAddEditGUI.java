@@ -132,7 +132,8 @@ public class EmployeeInformationAddEditGUI extends JDialog
     private void setUpGUI()
     {
         // Assures That Other Things May Not Be Interacted With While This Is Open
-        this.setModal(true);
+        // Evan: Commented Out (No Modal So We Can Keep Interacting )
+        // this.setModal(true);
 
         panel = new JPanel();
         panel.setLayout(new GridBagLayout()); //Sets layout grid bag

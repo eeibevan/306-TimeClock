@@ -135,7 +135,8 @@ public class EmployeeHourLogAddEditGUI extends JDialog
 	private void setUpGUI()
 	{
 		// Assures That Other Things May Not Be Interacted With While This Is Open
-		this.setModal(true);
+		// Evan: Commented Out (No Modal So We Can Keep Interacting )
+		//this.setModal(true);
 
 		JPanel panel = new JPanel(); //Initializes a JPanel for use
 		panel.setLayout(new GridBagLayout()); //Sets layout grid bag
