@@ -11,7 +11,7 @@ import java.util.Vector;
 
 
 /**
- * @author Evan and Liz
+ * @author Evan
  * Class For Interfacing With The Database
  */
 public class DatabaseInteraction
@@ -27,7 +27,7 @@ public class DatabaseInteraction
     private Connection connection;
 
     /**
-     * Default Constructor <br />
+     * Default Constructor,
      * Sets Up The Data Source, And Opens Our Connection
      */
     DatabaseInteraction()
@@ -38,8 +38,7 @@ public class DatabaseInteraction
 
 
     /**
-     * <b>Method:</b> getMySQLDataSource() <br />
-     * <b>Purpose:</b>  Configures Server Info Needed Before Making A Connection
+     * Configures Server Info Needed Before Making A Connection
      * @return
      *      A Datasource Set Up With Properties From The Properties File
      */
@@ -54,7 +53,6 @@ public class DatabaseInteraction
         // Datasource To Be Setup And Returned
         MysqlDataSource mysqlDS = null;
 
-
         try
         {
             // Opens And Reads Properties File
@@ -65,7 +63,7 @@ public class DatabaseInteraction
             mysqlDS.setUser(props.getProperty("MYSQL_DB_USERNAME"));
             mysqlDS.setPassword(props.getProperty("MYSQL_DB_PASSWORD"));
         }
-        catch (IOException e)
+        catch (IOException e) //TODO: Don't Swallow This Exception
         {
             e.printStackTrace();
         }
@@ -75,8 +73,7 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> establishConnection() <br />
-     * <b>Purpose:</b>  Attempts To Connect To The Server, And Set The connection Data Member
+     * Attempts To Connect To The Server, And Set The connection Data Member
      * @throws SQLException
      *          Connection To The Server Fails
      */
@@ -86,9 +83,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> establishConnectionSilent() <br />
-     * <b>Purpose:</b>  Attempts To Connect To The Server, And Set The connection Data Member
-     *                      Throws No Exceptions, Even IF Connection Fails
+     * Attempts To Connect To The Server, And Set The connection Data Member
+     *  Throws No Exceptions, Even If Connection Fails
      */
     private void establishConnectionSilent()
     {
@@ -104,11 +100,10 @@ public class DatabaseInteraction
 
 
     /**
-     * <b>Method:</b> isConnectionAlive() <br />
-     * <b>Purpose:</b>  Tests If The Connection Is Closed, Or Not Set Up
+     * Tests If The Connection Is Closed, Or Not Set Up
      * @return
-     *      True - The Connection To The Database Is Up <br />
-     *      False - Connection To The Database Was Not Up
+     *  True - The Connection To The Database Is Up <br />
+     *  False - Connection To The Database Was Not Up
      */
     private boolean isConnectionAlive()
     {
@@ -129,8 +124,7 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> assureConnection() <br />
-     * <b>Purpose:</b>  Makes Sure The Connection To The Database Is Up,
+     * Makes Sure The Connection To The Database Is Up,
      *  And Established One If It Is Not
      * @return
      *      True - The Connection To The Database Is Up <br />
@@ -139,6 +133,7 @@ public class DatabaseInteraction
     public boolean assureConnection()
     {
 
+        // If Connection Is Okay, No Need To Do Anything
         if (!isConnectionAlive())
         {
             try
@@ -156,12 +151,11 @@ public class DatabaseInteraction
 
 
     /**
-     * <b>Method:</b> getAllEmployees() <br />
-     * <b>Purpose:</b>  Retrieves A Set Of All Employees From The Server
+     * Retrieves A Set Of All Employees From The Database
      * @return
-     *      A ResultSet of ALl Employees
+     *  A ResultSet of ALl Employees
      * @throws SQLException
-     *     Connection To The Server Failed, Or The Database Was Not Found
+     *  Connection To The Server Failed, Or The Database Was Not Found
      */
     ResultSet getAllEmployees() throws SQLException
     {
@@ -173,12 +167,12 @@ public class DatabaseInteraction
 
 
     /**
-     * <b>Method:</b> getAllHours() <br />
-     * <b>Purpose:</b>  Retrieves A Set Of All Hours From The Server
+     * Retrieves A Set Of All Hours From The Database
+     *
      * @return
-     *      A ResultSet of ALl Hours
+     *  A ResultSet of All Hours
      * @throws SQLException
-     *     Connection To The Server Failed, Or The Database Was Not Found
+     *  Connection To The Server Failed, Or The Database Was Not Found
      */
     ResultSet getAllHours() throws SQLException
     {
@@ -188,12 +182,12 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveAllHours() <br />
-     * <b>Purpose:</b>  Retrieves ArrayList Of All Hours From The Server
+     * Retrieves ArrayList Of All Hours From The Database
+     *
      * @return
-     *      ArrayList Of Hours, Each One A Shift In The Database
+     *  ArrayList Of Hours, Each One A Shift In The Database
      */
-    public ArrayList<Hour> retrieveAllHours()
+    public ArrayList<Hour> retrieveAllHours() // TODO: Change To Use Vectors
     {
         if (!assureConnection())
             return null;
@@ -204,6 +198,8 @@ public class DatabaseInteraction
         try
         {
             allHours = getAllHours();
+
+            // Adds One Hour Object For Every Row In The ResultSet
             while (allHours.next())
             {
                 Hour toAdd = new Hour(allHours.getInt("RecordID"),allHours.getInt("EmployeeID"), allHours.getTimestamp("TimeIn"),allHours.getTimestamp("TimeOut"));
@@ -223,22 +219,25 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveAllEmployees() <br />
-     * <b>Purpose:</b>  Retrieves ArrayList Of All Employees From The Server
+     * Retrieves ArrayList Of All Employees From The Server
+     *
      * @return
-     *      ArrayList Of Employees, Each One An Employee In The Database
+     *  ArrayList Of Employees, Each One An Employee In The Database
      */
     public ArrayList<Employee> retrieveAllEmployees()
     {
         if (!assureConnection())
             return null;
 
-        ArrayList<Employee> toReturn = new ArrayList<Employee>();
+        ArrayList<Employee> toReturn = new ArrayList<>();
         ResultSet allEmp = null;
+
+
         try
         {
             allEmp = getAllEmployees();
 
+            // Adds One Employee Object For Every Row In The ResultSet
             while (allEmp.next())
             {
                 Employee toAdd = new Employee(allEmp.getInt("EmployeeID"), allEmp.getString("FirstName"), allEmp.getString("LastName"), allEmp.getString("Email"), allEmp.getInt("DepartmentID"), allEmp.getInt("JobCode"));
@@ -259,10 +258,10 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveAllDepartments() <br />
-     * <b>Purpose:</b>  Retrieves Vector Of All Departments From The Server (For ComboBoxes)
+     * Retrieves Vector Of All Departments From The Database
+     *
      * @return
-     *      Vector Of Departments, Each An Entry In The Department Table
+     *  Vector Of Departments, Each An Entry In The Department Table
      */
     public Vector<Department> retrieveAllDepartments()
     {
@@ -271,10 +270,13 @@ public class DatabaseInteraction
 
         Vector<Department> toReturn = new Vector<>();
         ResultSet allDepts = null;
+
+
         try
         {
             allDepts = getAllDepartments();
 
+            // Adds One Department Object For Every Row In The ResultSet
             while (allDepts.next())
             {
                 Department toAdd = new Department(allDepts.getInt("DepartmentID"), allDepts.getString("DepartmentName"));
@@ -294,10 +296,9 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveAllJobs() <br />
-     * <b>Purpose:</b>  Retrieves Vector Of All JobCodes From The Server (For ComboBoxes)
+     * Retrieves Vector Of All JobCodes From The Database (For ComboBoxes)
      * @return
-     *      Vector Of JobCodes, Each An Entry In The jobCode Table
+     *  Vector Of JobCodes, Each An Entry In The jobCode Table
      */
     public Vector<JobCode> retrieveAllJobs()
     {
@@ -307,10 +308,12 @@ public class DatabaseInteraction
         Vector<JobCode> toReturn = new Vector<>();
         ResultSet allJobs = null;
 
+
         try
         {
             allJobs = getAllJobs();
 
+            // Adds One JobCode Object For Every Row In The ResultSet
             while (allJobs.next())
             {
                 JobCode toAdd = new JobCode(allJobs.getInt("JobCode"), allJobs.getInt("DepartmentID"), allJobs.getString("JobName"));
@@ -331,12 +334,12 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveJobsInDepartment() <br />
-     * <b>Purpose:</b>  Retrieves Vector Of JobCodes From The Server Belonging To A Specific Department (For ComboBoxes)
+     * Retrieves Vector Of JobCodes From The Database Belonging To A Specific Department
+     *
      * @param pDepartmentID
-     *      The ID Of The Department With Job Codes
+     *  The ID Of The Department With Job Codes
      * @return
-     *      Vector Of JobCodes, Each An Entry In The jobCode Table Tied To A Specific Department
+     *  Vector Of JobCodes, Each An Entry In The jobCode Table Tied To A Specific Department
      */
     public Vector<JobCode> retrieveJobsInDepartment(int pDepartmentID)
     {
@@ -346,10 +349,12 @@ public class DatabaseInteraction
         Vector<JobCode> toReturn = new Vector<>();
         ResultSet someJobs = null;
 
+
         try
         {
             someJobs = getJobsByDepartment(pDepartmentID);
 
+            // Adds One JobCode Object For Every Row In The ResultSet
             while (someJobs.next())
             {
                 JobCode toAdd = new JobCode(someJobs.getInt("JobCode"), someJobs.getInt("DepartmentID"), someJobs.getString("JobName"));
@@ -369,44 +374,44 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> retrieveJobsInDepartment() <br />
-     * <b>Purpose:</b>  Retrieves Vector Of JobCodes From The Server Belonging To A Specific Department (For ComboBoxes)
-     * @param pDepartment
-     *      A Department Object With An ID Set
+     * Retrieves Vector Of JobCodes From The Server Belonging To A Specific Department (For ComboBoxes)
+     * @param department
+     *  A Department Object With An ID Set
      * @return
-     *      Vector Of JobCodes, Each An Entry In The jobCode Table Tied To A Specific Department
+     *  Vector Of JobCodes, Each An Entry In The jobCode Table Tied To A Specific Department
      */
-    public Vector<JobCode> retrieveJobsInDepartment(Department pDepartment)
+    public Vector<JobCode> retrieveJobsInDepartment(Department department)
     {
-        return this.retrieveJobsInDepartment(pDepartment.getDepartmentID());
+        return this.retrieveJobsInDepartment(department.getDepartmentID());
     }
 
     /**
-     * <b>Method:</b> getEmployeeByID() <br />
-     * <b>Purpose:</b>  Retrieves A Specific Employee (Or None If pEmployeeID Does Not Match Anything)
-     * @param pEmployeeID
-     *      The ID Of The Employee To Look For
+     * Retrieves A Specific Employee (Or None If pEmployeeID Does Not Match Anything)
+     *
+     * @param employeeID
+     *  The ID Of The Employee To Look For
      * @return
      *  A Result Set Of One Or Zero Employees
      * @throws SQLException
      *  Connection To The Server Failed, Or The Database Was Not Found
      */
-    ResultSet getEmployeeByID(int pEmployeeID) throws SQLException
+    ResultSet getEmployeeByID(int employeeID) throws SQLException
     {
-
         String sql =
                 "SELECT * FROM timeclock.employee " +
                         "WHERE EmployeeID = ?";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, pEmployeeID);
+        preparedStatement.setInt(1, employeeID);
+
+
         return preparedStatement.executeQuery();
     }
 
 
     /**
-     * <b>Method:</b> getAllDepartments() <br />
-     * <b>Purpose:</b>  Retrieves All Entries In Department Table
+     * Retrieves All Entries In Department Table
+     *
      * @return
      *  Result Set Of Every Department
      * @throws SQLException
@@ -422,8 +427,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> getAllJobs() <br />
-     * <b>Purpose:</b>  Retrieves All Entries In jobCode Table
+     * Retrieves All Entries In jobCode Table
+     *
      * @return
      *  Result Set Of Every jobCode
      * @throws SQLException
@@ -436,8 +441,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> getJobsByDepartment() <br />
-     * <b>Purpose:</b>  Retrieves All Jobs In A Specific Department
+     * Retrieves All Jobs In A Specific Department
+     *
      * @param pDepartmentID
      *  The ID Of The Department With The Job
      * @return
@@ -457,8 +462,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> getDepartmentByID() <br />
-     * <b>Purpose:</b>  Retrieves A Specific Department (Or None If pDepartmentID Does Not Match Anything)
+     * Retrieves A Specific Department (Or None If pDepartmentID Does Not Match Anything)
+     *
      * @param pDepartmentID
      *  The ID Of The Department To Search For
      * @return
@@ -478,16 +483,16 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> clockEmployeeIn() <br />
-     * <b>Purpose:</b>  Attempts To Begin A Shift For An Employee
+     * Attempts To Begin A Shift For An Employee
      *  Not Fully Implemented!
+     *
      * @param pEmployeeID
      *  The ID OF The Employee To Start The Shift Of
      * @return
      *  True - The Shift Was Successfully Started <br />
      *  False  - The Shift Could Not Be Started
      */
-    boolean clockEmployeeIn(int pEmployeeID)
+    boolean clockEmployeeIn(int pEmployeeID) // TODO: Complete Method
     {
 
         try
@@ -521,33 +526,34 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> createNewEmployee() <br />
-     * <b>Purpose:</b>  Attempts To Create A New Employee
-     * @param pNewEmployeeID
+     * Attempts To Create A New Employee, Will Check To See If Unique Fields Already
+     *  Are Taken (ID) Before Creation
+     *
+     * @param newEmployeeID
      * 	The Unique ID Of The Employee
-     * @param pFirstName
+     * @param firstName
      * 	The First Name Of The Employee
-     * @param pLastName
+     * @param lastName
      * 	The Last Name Of The Employee
-     * @param pEmail
+     * @param email
      * 	The Email Address Of The Employee
-     * @param pDepartmentID
+     * @param departmentID
      * 	The Unique ID Of The Department That The Employee Is A Part Of
-     * @param pJobCode
+     * @param jobCode
      *	The Unique ID Of The Job That The Employee Performs
      *
      * @return
      *  True - The Employee Was Successfully Created <br />
-     *  False - The Employee Could Not Be Created
+     *  False - The Employee Could Not Be Created, The ID May Be Taken
      *
      *  @throws SQLException
      *      Database Failure
      */
-    boolean createNewEmployee (int pNewEmployeeID, String pFirstName, String pLastName, String pEmail, int pDepartmentID, int pJobCode) throws SQLException
+    boolean createNewEmployee (int newEmployeeID, String firstName, String lastName, String email, int departmentID, int jobCode) throws SQLException
     {
-        if (!isExistingEmployeeByID(pNewEmployeeID))
+        if (!isExistingEmployeeByID(newEmployeeID))
         {
-            insertNewEmployee(pNewEmployeeID, pFirstName, pLastName, pEmail, pDepartmentID, pJobCode);
+            insertNewEmployee(newEmployeeID, firstName, lastName, email, departmentID, jobCode);
             return true;
         }
         else
@@ -557,8 +563,9 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> createNewEmployee() <br />
-     * <b>Purpose:</b>  Attempts To Create A New Employee
+     * Attempts To Create A New Employee, Will Check To See If Unique Fields Already
+     *  Are Taken (ID) Before Creation
+     *
      * @param newEmployee
      *  An Employee Object Containing All Relevant Info
      *
@@ -575,8 +582,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> removeEmployee() <br />
-     * <b>Purpose:</b>  Attempts To Remove An Employee
+     * Attempts To Remove An Employee
+     *
      * @param employeeToRemove
      *  An Employee Object Containing At Least An ID
      * @throws SQLException
@@ -588,8 +595,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> removeEmployee() <br />
-     * <b>Purpose:</b>  Attempts To Remove An Employee
+     * Attempts To Remove An Employee
+     *
      * @param employeeID
      *  The ID Of The Employee To Remove
      * @throws SQLException
@@ -601,35 +608,33 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> createNewShift() <br />
-     * <b>Purpose:</b>  Attempts Create A New Shift
-     * @param pEmployeeID
-     *  The ID OF The Employee That Worked The Shift
-     * @param pTimeIn
-     * SQL Time Value For When The Clock In Occurred
-     * @param pDateIn
-     * Sql Date Value For When The Clock In Occurred
-     * @param pTimeOut
-     * SQL Time Value For When The Clock Out Occurred
-     * @param pDateOut
-     * Sql Date Value For When The Clock Out Occurred
+     * Attempts Create A New Shift
      *
+     * @param employeeID
+     *  The ID OF The Employee That Worked The Shift
+     * @param timeIn
+     *  SQL Time Value For When The Clock In Occurred
+     * @param dateIn
+     *  Sql Date Value For When The Clock In Occurred
+     * @param timeOut
+     *  SQL Time Value For When The Clock Out Occurred
+     * @param dateOut
+     *  Sql Date Value For When The Clock Out Occurred
      *@return
      *  True - The Shift Was Successfully Created <br />
      *  False - The Shift Could Not Be Created
-     *
      * @throws SQLException
      *  Database Failure
      */
-    boolean createNewShift(int pEmployeeID, Time pTimeIn, Date pDateIn, Time pTimeOut, Date pDateOut) throws SQLException
+    boolean createNewShift(int employeeID, Time timeIn, Date dateIn, Time timeOut, Date dateOut) throws SQLException
     {
-        insertNewHour(pEmployeeID,pTimeIn,pDateIn,pTimeOut,pDateOut);
+        insertNewHour(employeeID,timeIn,dateIn,timeOut,dateOut);
         return true;
     }
 
     /**
-     * <b>Method:</b> createNewShift() <br />
-     * <b>Purpose:</b>  Attempts Create A New Shift
+     * Attempts Create A New Shift
+     *
      * @param newHour
      *  An Hour Containing All Relevant Info
      * @return
@@ -645,23 +650,24 @@ public class DatabaseInteraction
 
 
     /**
-     * <b>Method:</b> isEmployeeClockedIn() <br />
-     * <b>Purpose:</b>  Tests If The Employee Has An Active Shift
-     * @param pEmployeeID
+     * Tests If The Employee Has An Active Shift
+     *
+     * @param employeeID
      *  The ID Of The Employee To Check For An Active Shift
      * @return
      *  True - The Employee Is In <br />
      *  False - The Employee Is Not In
-     *
      * @throws SQLException
      *  Database Failure
      */
-    private boolean isEmployeeClockedIn(int pEmployeeID) throws SQLException
+    private boolean isEmployeeClockedIn(int employeeID) throws SQLException
     {
         ResultSet resultSet = null;
         try
         {
-            resultSet = getEmployeeInShiftsByID(pEmployeeID);
+            resultSet = getEmployeeInShiftsByID(employeeID);
+
+            // If ResultSet Is Empty (No Active Shifts), Will Return False
             return !resultSet.next();
         }
         finally
@@ -672,38 +678,38 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> getEmployeeInShiftsByID() <br />
-     * <b>Purpose:</b>  Get All Shifts For A Given Employee
-     * @param pEmployeeID
+     * Get All Shifts For A Given Employee
+     *
+     * @param employeeID
      *  The ID Of An Employee To Get All Shifts Of
      * @return
      *  A ResultSet Of All Shifts Fur An Employee
-     *
      * @throws SQLException
      *  Database Failure
      */
-    ResultSet getEmployeeInShiftsByID(int pEmployeeID) throws SQLException
+    ResultSet getEmployeeInShiftsByID(int employeeID) throws SQLException
     {
         String sql =
                 "SELECT * FROM timeclock.employeeHourLog " +
                         "WHERE EmployeeID=? AND ISNULL(TimeOut) ";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, pEmployeeID);
+        preparedStatement.setInt(1, employeeID);
+
+
         return preparedStatement.executeQuery();
 
     }
 
     /**
-     * <b>Method:</b> insertShift() <br />
-     * <b>Purpose:</b>  Inserts A Default Shift For A Given Employee
-     * @param pEmployeeID
-     *  The ID Of The Employee To Add The Shift For
+     * Inserts A Default Shift For A Given Employee
      *
+     * @param employeeID
+     *  The ID Of The Employee To Add The Shift For
      * @throws SQLException
      *  Database Failure
      */
-    private void insertShift(int pEmployeeID) throws SQLException
+    private void insertShift(int employeeID) throws SQLException
     {
         String sql =
                 "INSERT INTO timeclock.employeeHourLog (EmployeeID) " +
@@ -711,17 +717,17 @@ public class DatabaseInteraction
 
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1, pEmployeeID);
-        preparedStatement.executeUpdate();
+        preparedStatement.setInt(1, employeeID);
 
+        preparedStatement.executeUpdate();
         preparedStatement.closeOnCompletion();
 
     }
 
     /**
-     * <b>Method:</b> endShift() <br />
-     * <b>Purpose:</b>  Ends An Open Shift For A Given Employee
-     * @param pEmployeeID
+     * Ends An Open Shift For A Given Employee
+     *
+     * @param employeeID
      *  The ID Of The Employee To Close The Shift For
      * @return
      *  True - The Employee's Shift Was Closed <br />
@@ -729,20 +735,21 @@ public class DatabaseInteraction
      * @throws SQLException
      *  Database Failure
      */
-    boolean endShift(int pEmployeeID) throws SQLException
+    boolean endShift(int employeeID) throws SQLException
     {
-        if (isEmployeeClockedIn(pEmployeeID))
+        if (isEmployeeClockedIn(employeeID))
         {
             String sql =
                     "UPDATE timeclock.employeeHourLog " +
-                            "SET TimeOut=NOW()"+
+                            "SET TimeOut=NOW() "+
                             "WHERE EmployeeID=? AND ISNULL(TimeOut)";
 
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, pEmployeeID);
-            preparedStatement.executeUpdate();
+            preparedStatement.setInt(1, employeeID);
 
+
+            preparedStatement.executeUpdate();
             preparedStatement.closeOnCompletion();
 
             return true;
@@ -756,8 +763,8 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> deleteShiftByID() <br />
-     * <b>Purpose:</b>  Removes A Shift From The Database
+     * Removes A Shift From The Database
+     *
      * @param pShiftID
      *  The ID OF The Shift
      * @throws SQLException
@@ -767,54 +774,55 @@ public class DatabaseInteraction
     {
         String sql = "DELETE FROM employeehourlog " +
                 "WHERE EmployeeID=?";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1,pShiftID);
-        preparedStatement.executeUpdate();
 
+        preparedStatement.executeUpdate();
         preparedStatement.closeOnCompletion();
     }
 
     /**
-     * <b>Method:</b> deleteEmployeeByID() <br />
-     * <b>Purpose:</b>  Removes An Employee From The Database
-     * @param pEmployeeID
+     * Removes An Employee From The Database
+     *
+     * @param employeeID
      *  The ID OF The Employee
      * @throws SQLException
      *  Database Failure
      */
-    private void deleteEmployeeByID(int pEmployeeID) throws SQLException
+    private void deleteEmployeeByID(int employeeID) throws SQLException
     {
         String sql = "DELETE FROM employee " +
                 "WHERE EmployeeID=?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setInt(1,pEmployeeID);
-        preparedStatement.executeUpdate();
 
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1,employeeID);
+
+        preparedStatement.executeUpdate();
         preparedStatement.closeOnCompletion();
     }
 
     /**
-     * <b>Method:</b> updateEmployeeByID() <br />
-     * <b>Purpose:</b>  Updated Info Associated With A Given Employee
-     * @param pCurrentEmployeeID
-     *  The Current Unique ID Of The Employee
-     * @param pNewEmployeeID
-     * 	The New Unique ID Of The Employee
-     * @param pFirstName
-     * 	The First Name Of The Employee
-     * @param pLastName
-     * 	The Last Name Of The Employee
-     * @param pEmail
-     * 	The Email Address Of The Employee
-     * @param pDepartmentID
-     * 	The Unique ID Of The Department That The Employee Is A Part Of
-     * @param pJobCode
-     *	The Unique ID Of The Job That The Employee Performs
+     * Updated Info Associated With A Given Employee
      *
+     * @param currentEmployeeID
+     *  The Current Unique ID Of The Employee
+     * @param newEmployeeID
+     * 	The New Unique ID Of The Employee
+     * @param firstName
+     * 	The First Name Of The Employee
+     * @param lastName
+     * 	The Last Name Of The Employee
+     * @param email
+     * 	The Email Address Of The Employee
+     * @param departmentID
+     * 	The Unique ID Of The Department That The Employee Is A Part Of
+     * @param jobCode
+     *	The Unique ID Of The Job That The Employee Performs
      * @throws SQLException
      *  Database Failure
      */
-    public void updateEmployeeByID(int pCurrentEmployeeID, int pNewEmployeeID, String pFirstName, String pLastName, String pEmail, int pDepartmentID, int pJobCode) throws SQLException
+    public void updateEmployeeByID(int currentEmployeeID, int newEmployeeID, String firstName, String lastName, String email, int departmentID, int jobCode) throws SQLException
     {
         String sql =
                 "UPDATE employee " +
@@ -825,35 +833,36 @@ public class DatabaseInteraction
                         "LastName=?, " +
                         "Email=? " +
                         "WHERE EmployeeID=?;";
+
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setInt(1, pNewEmployeeID);
-        preparedStatement.setInt(2, pDepartmentID);
-        preparedStatement.setInt(3, pJobCode);
-        preparedStatement.setString(4, pFirstName);
-        preparedStatement.setString(5, pLastName);
-        preparedStatement.setString(6, pEmail);
-        preparedStatement.setInt(7, pCurrentEmployeeID);
+        preparedStatement.setInt(1, newEmployeeID);
+        preparedStatement.setInt(2, departmentID);
+        preparedStatement.setInt(3, jobCode);
+        preparedStatement.setString(4, firstName);
+        preparedStatement.setString(5, lastName);
+        preparedStatement.setString(6, email);
+        preparedStatement.setInt(7, currentEmployeeID);
 
         preparedStatement.executeUpdate();
         closeSilently(preparedStatement);
     }
 
     /**
-     * <b>Method:</b> updateShiftByID() <br />
-     * <b>Purpose:</b>  Updated Info Associated With A Given Shift
-     * @param pRecordID
+     * Updated Info Associated With A Given Shift
+     *
+     * @param recordID
      *  The Current Unique ID Of The Shift
-     * @param pEmployeeID
+     * @param employeeID
      *  The New Unique ID Of The Employee
-     * @param pTimeIn
+     * @param timeIn
      *  The Timestamp Of When The Shift Starts
-     * @param pTimeOut
+     * @param timeOut
      *  The Timestamp Of When The Shift Ends
      * @throws SQLException
      *   Database Failure
      */
-    public void updateShiftByID(int pRecordID, int pEmployeeID, Timestamp pTimeIn, Timestamp pTimeOut) throws SQLException
+    public void updateShiftByID(int recordID, int employeeID, Timestamp timeIn, Timestamp timeOut) throws SQLException
     {
         String sql =
                 "UPDATE employeeHourLog " +
@@ -862,41 +871,35 @@ public class DatabaseInteraction
                         "TimeOut=? " +
                         "WHERE RecordID=? ";
 
-
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        // Values
-        preparedStatement.setInt(1,pEmployeeID);
-        preparedStatement.setTimestamp(2,pTimeIn);
-        preparedStatement.setTimestamp(3,pTimeOut);
-
-        // Key
-        preparedStatement.setInt(4,pRecordID);
-
+        preparedStatement.setInt(1,employeeID);
+        preparedStatement.setTimestamp(2,timeIn);
+        preparedStatement.setTimestamp(3,timeOut);
+        preparedStatement.setInt(4,recordID);
 
         preparedStatement.executeUpdate();
         closeSilently(preparedStatement);
     }
 
     /**
-     * Method: isExistingEmployeeByID (int pEmployeeID) <br />
-     * Purpose: Method Checks If A Passed In ID Is Already In The Database
+     * Method Checks If A Passed In ID Is Already In The Database
      *
-     * @param pEmployeeID
-     *      The ID To Check For
-     *
+     * @param employeeID
+     *  The ID To Check For
      * @return
-     *      True - The ID Is Already In The Database <br />
-     *      False - The ID Is Not In The Database <br />
-     *
+     *  True - The ID Is Already In The Database <br />
+     *  False - The ID Is Not In The Database
      * @throws SQLException
-     *      If We Lose Connection To The Server
+     *  If We Lose Connection To The Server
      */
-    boolean isExistingEmployeeByID(int pEmployeeID) throws SQLException
+    boolean isExistingEmployeeByID(int employeeID) throws SQLException
     {
-        ResultSet resultSet = getEmployeeByID(pEmployeeID);
+        // Should Be 0 Or 1 Employees
+        ResultSet resultSet = getEmployeeByID(employeeID);
         try
         {
+            // If 0, Then Returns False
             return resultSet.next();
         }
         finally
@@ -907,25 +910,25 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> insertNewEmployee() <br />
-     * <b>Purpose:</b> Private Creation Method For Employee
-     * @param pNewEmployeeID
+     * Private Creation Method For Employee
+     *
+     * @param newEmployeeID
      * 	The Unique ID Of The Employee
-     * @param pFirstName
+     * @param firstName
      * 	The First Name Of The Employee
-     * @param pLastName
+     * @param lastName
      * 	The Last Name Of The Employee
-     * @param pEmail
+     * @param email
      * 	The Email Address Of The Employee
-     * @param pDepartmentID
+     * @param departmentID
      * 	The Unique ID Of The Department That The Employee Is A Part Of
-     * @param pJobCode
+     * @param jobCode
      *	The Unique ID Of The Job That The Employee Performs
      *
      *  @throws SQLException
      *      Database Failure
      */
-    private void insertNewEmployee(int pNewEmployeeID, String pFirstName, String pLastName, String pEmail, int pDepartmentID, int pJobCode) throws SQLException
+    private void insertNewEmployee(int newEmployeeID, String firstName, String lastName, String email, int departmentID, int jobCode) throws SQLException
     {
         String sql =
                 "INSERT INTO timeclock.employee (EmployeeID, FirstName, LastName, Email, DepartmentID, JobCode) " +
@@ -934,12 +937,12 @@ public class DatabaseInteraction
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        preparedStatement.setInt(1, pNewEmployeeID);
-        preparedStatement.setString(2, pFirstName);
-        preparedStatement.setString(3, pLastName);
-        preparedStatement.setString(4, pEmail);
-        preparedStatement.setInt(5, pDepartmentID);
-        preparedStatement.setInt(6, pJobCode);
+        preparedStatement.setInt(1, newEmployeeID);
+        preparedStatement.setString(2, firstName);
+        preparedStatement.setString(3, lastName);
+        preparedStatement.setString(4, email);
+        preparedStatement.setInt(5, departmentID);
+        preparedStatement.setInt(6, jobCode);
 
 
         preparedStatement.executeUpdate();
@@ -947,29 +950,27 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> insertNewHour() <br />
-     * <b>Purpose:</b> Private Creation Method For Shift
+     * Private Creation Method For Shift
      *
-     * @param pEmployeeID
+     * @param employeeID
      *  The ID OF The Employee That Worked The Shift
-     * @param pTimeIn
+     * @param timeIn
      * SQL Time Value For When The Clock In Occurred
-     * @param pDateIn
+     * @param dateIn
      * Sql Date Value For When The Clock In Occurred
-     * @param pTimeOut
+     * @param timeOut
      * SQL Time Value For When The Clock Out Occurred
-     * @param pDateOut
+     * @param dateOut
      * Sql Date Value For When The Clock Out Occurred
-     *
      *  @throws SQLException
      *      Database Failure
      */
-    private void insertNewHour(int pEmployeeID, Time pTimeIn, Date pDateIn, Time pTimeOut, Date pDateOut) throws SQLException
+    private void insertNewHour(int employeeID, Time timeIn, Date dateIn, Time timeOut, Date dateOut) throws SQLException
     {
 
         // Convert Values To Timestamp For Storage In Database
-        Timestamp timeIn = new Timestamp(pDateIn.getTime() + pTimeIn.getTime());
-        Timestamp timeOut = new Timestamp(pDateOut.getTime() + pTimeOut.getTime());
+        Timestamp timeStampIn = new Timestamp(dateIn.getTime() + timeIn.getTime());
+        Timestamp timeStampOut = new Timestamp(dateOut.getTime() + timeOut.getTime());
 
         String sql =
                 "INSERT INTO timeclock.employeeHourLog (EmployeeID, TimeIn, TimeOut) " +
@@ -977,17 +978,17 @@ public class DatabaseInteraction
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
 
-        preparedStatement.setInt(1, pEmployeeID);
-        preparedStatement.setTimestamp(2,timeIn);
-        preparedStatement.setTimestamp(3,timeOut);
+        preparedStatement.setInt(1, employeeID);
+        preparedStatement.setTimestamp(2,timeStampIn);
+        preparedStatement.setTimestamp(3,timeStampOut);
 
         preparedStatement.executeUpdate();
         closeSilently(preparedStatement);
     }
 
     /**
-     * <b>Method:</b> closeSilently() <br />
-     * <b>Purpose:</b> Closes The Passed In Item Silently (No Exception Throwing)
+     * Closes The Passed In Item Silently (No Exception Throwing)
+     *
      * @param pResultSet
      *  A ResultSet To Close
      */
@@ -1004,16 +1005,16 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> closeSilently() <br />
-     * <b>Purpose:</b> Closes The Passed In Item Silently (No Exception Throwing)
-     * @param pPreparedStatement
+     * Closes The Passed In Item Silently (No Exception Throwing)
+     *
+     * @param preparedStatement
      *  A PreparedStatement To Close
      */
-    private void closeSilently(PreparedStatement pPreparedStatement)
+    private void closeSilently(PreparedStatement preparedStatement)
     {
         try
         {
-            pPreparedStatement.close();
+            preparedStatement.close();
         }
         catch (SQLException e)
         {
@@ -1022,16 +1023,16 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> closeSilently() <br />
-     * <b>Purpose:</b> Closes The Passed In Item Silently (No Exception Throwing)
-     * @param pStatement
+     * Closes The Passed In Item Silently (No Exception Throwing)
+     *
+     * @param statement
      *  A Statement To Close
      */
-    private void closeSilently(Statement pStatement)
+    private void closeSilently(Statement statement)
     {
         try
         {
-            pStatement.close();
+            statement.close();
         }
         catch (SQLException e)
         {
@@ -1040,16 +1041,16 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> closeSilently() <br />
-     * <b>Purpose:</b> Closes The Passed In Item Silently (No Exception Throwing)
-     * @param pConnection
+     * Closes The Passed In Item Silently (No Exception Throwing)
+     *
+     * @param connection
      *  A Connection To Close
      */
-    private void closeSilently(Connection pConnection)
+    private void closeSilently(Connection connection)
     {
         try
         {
-            pConnection.close();
+            connection.close();
         }
         catch (SQLException e)
         {
@@ -1058,8 +1059,7 @@ public class DatabaseInteraction
     }
 
     /**
-     * <b>Method:</b> closeConnectionSilently() <br />
-     * <b>Purpose:</b> Closes This Object's Connection Silently (No Exception Throwing)s
+     * Closes This Object's Connection Silently (No Exception Throwing)
      */
     private void closeConnectionSilently()
     {
