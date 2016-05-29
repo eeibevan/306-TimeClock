@@ -1,18 +1,9 @@
 package timeclock;
 
-
-
-
-// For Reading in Server URL, Account, Database Name, etc
 import java.io.FileInputStream;
 import java.io.IOException;
-
 import javax.sql.DataSource;
-import javax.swing.*;
-
-
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
