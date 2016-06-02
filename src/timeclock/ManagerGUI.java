@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -41,10 +42,16 @@ public class ManagerGUI extends JFrame
 	private JLabel lblReport;
 	private JButton btnReport;
 	private BufferedImage reportImage;
+
+
+    /**
+     * Provides Database IO
+     */
+	private DatabaseInteraction dbo;
 	
 	//Constructor
-	public ManagerGUI()
-	{		
+	public ManagerGUI() throws SQLException
+    {
 		/* Frame Properties*/
 		this.setTitle("Admin Manager"); //Titles the frame 
 		this.setSize(330,380); //Sets size of frame
@@ -56,7 +63,11 @@ public class ManagerGUI extends JFrame
 	    bag.fill = GridBagConstraints.NORTHEAST;
 	    bag.weightx = 1;
 	    
-	    
+
+        // Initializes Connection To Database
+        //  Exceptions Thrown Handled By Main Class
+        dbo = new DatabaseInteraction();
+
 	    
 		/* **************************************** *
 		 *    Employee Schedule Button and Label    *
@@ -259,11 +270,11 @@ public class ManagerGUI extends JFrame
 		{
 			if (actionEvent.getSource() == btnEmployees)
 			{
-				new EmployeeInformationGUI();
+				new EmployeeInformationGUI(dbo);
 			}
 			else if (actionEvent.getSource() == btnHourLog)
 			{
-				new EmployeeHourLogGUI();
+				new EmployeeHourLogGUI(dbo);
 			}
 			else if (actionEvent.getSource() == btnSchedule)
 			{

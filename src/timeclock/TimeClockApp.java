@@ -1,5 +1,8 @@
 package timeclock;
 
+import javax.swing.*;
+import java.sql.SQLException;
+
 /**
  * Class Is Entry Point For Manager
  */
@@ -10,7 +13,14 @@ public class TimeClockApp
      */
 	public static void main(String[] args) 
 	{
-		// No Need To Catch Object Here
-		new ManagerGUI();
+
+		try
+		{
+			new ManagerGUI();
+		}
+        catch (SQLException e)
+        {
+            JOptionPane.showMessageDialog(null, "Connection To The Database Failed", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
