@@ -32,8 +32,8 @@ public class EmployeeScheduleGUI extends JFrame
 		//EmployeeInformationTable employeeInformationTable = new EmployeeInformationTable(true, this.dbo);
 		//this.add(employeeInformationTable);
 		
-		EmployeeHourLogTable hourLogTable = new EmployeeHourLogTable();
-		this.add(hourLogTable);
+		//EmployeeHourLogTable hourLogTable = new EmployeeHourLogTable(this.dbo);
+		//this.add(hourLogTable);
 		
 		AddEditDeleteButtons addEditDeleteButtons = new AddEditDeleteButtons();
 		this.add(addEditDeleteButtons);

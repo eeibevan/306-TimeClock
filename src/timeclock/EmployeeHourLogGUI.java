@@ -91,7 +91,7 @@ public class EmployeeHourLogGUI extends TableFrame
 
 
 		// Hours
-		employeeHourLogTable = new EmployeeHourLogTable();
+		employeeHourLogTable = new EmployeeHourLogTable(this.dbo);
 		employeeHourLogTable.setTableListener(new EditHourMouse());
 		bag.gridx = 1; //Column 
 		bag.gridy = 1; //Row

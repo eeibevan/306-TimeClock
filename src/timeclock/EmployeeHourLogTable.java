@@ -31,11 +31,11 @@ public class EmployeeHourLogTable extends JPanel
 	 * Constructor <br />
 	 * Adds Graphical Components And Sets Up Table
 	 */
-	public EmployeeHourLogTable()
+	public EmployeeHourLogTable(DatabaseInteraction dbo)
 	{	
 		this.setLayout( new BorderLayout() );
 
-		model = new HourLogModel(new DatabaseInteraction());
+		model = new HourLogModel(dbo);
 		// Create a new table instance
 		hourLogTable = new JTable(model);
 		
