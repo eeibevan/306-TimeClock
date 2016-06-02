@@ -83,7 +83,7 @@ public class EmployeeHourLogGUI extends TableFrame
 
 
 		//Table in the middle
-		employeeInformationTable = new EmployeeInformationTable(true);
+		employeeInformationTable = new EmployeeInformationTable(true, this.dbo);
 		bag.gridx = 0; //Column 
 		bag.gridy = 1; //Row 
 		bag.gridwidth = 1;

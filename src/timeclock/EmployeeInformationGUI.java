@@ -55,7 +55,7 @@ public class EmployeeInformationGUI extends TableFrame
 		this.add(titleandDropBoxes, BorderLayout.NORTH);
 		
 		//Table in the middle
-		employeeInformationTable = new EmployeeInformationTable(false);
+		employeeInformationTable = new EmployeeInformationTable(false, this.dbo);
 		this.add(employeeInformationTable, BorderLayout.CENTER);
 		
 		AddEditDeleteButtons addEditDeleteButtons = new AddEditDeleteButtons(this);

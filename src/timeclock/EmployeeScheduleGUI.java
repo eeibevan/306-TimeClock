@@ -29,8 +29,8 @@ public class EmployeeScheduleGUI extends JFrame
 		/////Layout needs these two tables to be side by side
 		////////////////////////////////
 		//Table in the middle
-		EmployeeInformationTable employeeInformationTable = new EmployeeInformationTable(true);
-		this.add(employeeInformationTable);
+		//EmployeeInformationTable employeeInformationTable = new EmployeeInformationTable(true, this.dbo);
+		//this.add(employeeInformationTable);
 		
 		EmployeeHourLogTable hourLogTable = new EmployeeHourLogTable();
 		this.add(hourLogTable);

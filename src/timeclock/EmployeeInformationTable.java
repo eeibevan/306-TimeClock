@@ -41,8 +41,10 @@ public class EmployeeInformationTable extends JPanel
      * @param pIsAsideTable
      *  If The Table Is A Slim Version (True) <br />
      *  Or A Full Version (False)
+     * @param dbo
+     *  Reference To Database Interaction Object
      */
-    public EmployeeInformationTable(boolean pIsAsideTable)
+    public EmployeeInformationTable(boolean pIsAsideTable, DatabaseInteraction dbo)
     {
         // Stores Data Member
         isAsideTable = pIsAsideTable;
@@ -51,8 +53,7 @@ public class EmployeeInformationTable extends JPanel
         this.setLayout(new BorderLayout());
 
         // Sets Up The Database Reference
-        dbo = new DatabaseInteraction();
-        dbo.assureConnection();
+        this.dbo = dbo;
 
 
         if (!isAsideTable) // Set Up Full Table
