@@ -31,10 +31,10 @@ public class DatabaseInteraction
      * Default Constructor,
      * Sets Up The Data Source, And Opens Our Connection
      */
-    DatabaseInteraction()
+    DatabaseInteraction() throws SQLException
     {
         dataSource = getMySQLDataSource();
-        establishConnectionSilent();
+        establishConnection();
     }
 
 
