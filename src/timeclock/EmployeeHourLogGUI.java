@@ -54,7 +54,7 @@ public class EmployeeHourLogGUI extends TableFrame
 	 * Constructor <br />
 	 * Adds Graphical Components And Sets Up Listeners
 	 */
-	public EmployeeHourLogGUI()
+	public EmployeeHourLogGUI(DatabaseInteraction dbo)
 	{
 		title = "Employee Hour Log";
 		this.setTitle(title); //Titles the frame 
@@ -65,7 +65,7 @@ public class EmployeeHourLogGUI extends TableFrame
 
 
 		// Controls Persistent Data
-		dbo = new DatabaseInteraction();
+		this.dbo = dbo;
 	    
 	    GridBagConstraints bag = new GridBagConstraints();
 	    bag.fill = GridBagConstraints.NORTHEAST;

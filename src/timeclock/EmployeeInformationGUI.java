@@ -40,7 +40,7 @@ public class EmployeeInformationGUI extends TableFrame
 	private static final int HEIGHT = 500;
 
 
-	public EmployeeInformationGUI()
+	public EmployeeInformationGUI(DatabaseInteraction dbo)
 	{
 		title = "Employee Information";
 		this.setTitle(title); //Titles the frame
@@ -48,7 +48,7 @@ public class EmployeeInformationGUI extends TableFrame
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); //Sets Dispose on close, So We Don't Close Everything
 
-		dbo = new DatabaseInteraction();
+		this.dbo = dbo;
 
 		//Title, department and sort drop boxes 
 		TitleandDropBoxes titleandDropBoxes = new TitleandDropBoxes(title);
