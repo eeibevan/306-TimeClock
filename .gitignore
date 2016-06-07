@@ -10,9 +10,7 @@ bin/
 *.project
 *.settings
 
-# InteliJ IDE Files #
-*.iml
-.idea/
+
 
 
 # ***************  GITHUB SUGGESTED  ***************
