@@ -120,7 +120,7 @@ public class ManagerGUI extends JFrame
 	    panel.add(lblHourLog, bag); //Adds to panel
 	    
 	    //Button
-		btnHourLog = new JButton();		
+		btnHourLog = new JButton();
 		hourLogDesign(); //Calls method with the button design
 		btnHourLog.addActionListener(new BtnListener());
 		bag.gridx = 0; //Column 
