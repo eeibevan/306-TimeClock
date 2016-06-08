@@ -111,8 +111,7 @@ public class EmployeeHourLogGUI extends TableFrame
 
 
 	/**
-	 * <b>Method:</b> showEditDialogue() <br />
-	 * <b>Purpose:</b> Sets Up An Edit Dialogue On A Double Clicked Row
+	 * Sets Up An Edit Dialogue On A Double Clicked Row
 	 */
 	private void showEditDialogue()
 	{
@@ -127,8 +126,7 @@ public class EmployeeHourLogGUI extends TableFrame
 	}
 
 	/**
-	 * <b>Method:</b> showEditDialogue() <br />
-	 * <b>Purpose:</b> Sets Up An Edit Dialogue On A Row
+	 * Sets Up An Edit Dialogue On A Row
 	 * @param row
 	 * 	The Number Of The Row Containing An Hour (Usually Retrieved From The Table)
      */
@@ -149,8 +147,7 @@ public class EmployeeHourLogGUI extends TableFrame
 	}
 
 	/**
-	 * <b>Method:</b> openNewDialogue() <br />
-	 * <b>Purpose:</b> Opens A Dialogue To Add A Shift
+	 * Opens A Dialogue To Add A Shift
 	 */
 	private void openNewDialogue()
 	{
@@ -165,8 +162,7 @@ public class EmployeeHourLogGUI extends TableFrame
 
 
 	/**
-	 * <b>Method:</b> openNewDialogue() <br />
-	 * <b>Purpose:</b> Opens A Dialogue To Add A Shift
+	 *Opens A Dialogue To Add A Shift
 	 */
 	@Override
 	public void openAddDialog()
@@ -175,8 +171,7 @@ public class EmployeeHourLogGUI extends TableFrame
 	}
 
 	/**
-	 * <b>Method:</b> showEditDialogue() <br />
-	 * <b>Purpose:</b> Sets Up An Edit Dialogue
+	 * Sets Up An Edit Dialogue
 	 */
 	@Override
 	public void openEditDialog()

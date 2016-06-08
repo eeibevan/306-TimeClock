@@ -126,8 +126,7 @@ public class EmployeeInformationAddEditGUI extends JDialog
     }
 
     /**
-     * <b>Method:</b> setUpGUI() <br />
-     * <b>Purpose:</b>  Sets The Graphical Components, Adds Listeners
+     *  Sets The Graphical Components, Adds Listeners
      */
     private void setUpGUI()
     {
@@ -281,8 +280,7 @@ public class EmployeeInformationAddEditGUI extends JDialog
 
 
     /**
-     * <b>Method:</b> verifyTextFields() <br />
-     * <b>Purpose:</b> Assures That The Values Currently In The Text Fields Are Valid,
+     *  Assures That The Values Currently In The Text Fields Are Valid,
      * 	Notifies The User And Returns false If They Are Not
      *
      * 	@return
@@ -349,8 +347,7 @@ public class EmployeeInformationAddEditGUI extends JDialog
     }
 
     /**
-     * <b>Method:</b> performAddEdit() <br />
-     * <b>Purpose:</b> Validates, Then Commits The Form Data To The Database
+     * Validates, Then Commits The Form Data To The Database
      */
     private void performAddEdit()
     {

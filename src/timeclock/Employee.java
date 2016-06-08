@@ -45,7 +45,7 @@ public class Employee
 	private static final int IGNORE_INT = -1;
 
 	/**
-	 * Default Constructor<br />
+	 * Default Constructor
 	 * Sets Up An Empty Employee
 	 */
 	public Employee()
@@ -80,8 +80,7 @@ public class Employee
 	}
 
 	/**
-	 * <b>Method:</b> toString() <br />
-	 * <b>Purpose:</b>  Converts The Object To A String (Gives First And Last Name)
+	 * Converts The Object To A String (Gives First And Last Name)
 	 * @return
 	 * 	The Employee's First And Last Name Separated By A Space
 	 */
@@ -93,8 +92,7 @@ public class Employee
 
 
 	/**
-	 * <b>Method:</b> equals() <br />
-	 * <b>Purpose:</b> Tests If This Employee Is The Same As Another Object
+	 * Tests If This Employee Is The Same As Another Object
 	 * @param o
 	 * 	The Object To Test To See If We Are Equal To (Should Be An Employee Object)
 	 * @return

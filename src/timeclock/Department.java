@@ -35,8 +35,7 @@ public class Department
 	}
 
 	/**
-	 * <b>Method:</b> toString() <br />
-	 * <b>Purpose:</b> Converts The Object To A String (Gives The Name)
+	 * Converts The Object To A String (Gives The Name)
 	 * @return
 	 * 	The Department Name
 	 */
@@ -48,8 +47,7 @@ public class Department
 
 
 	/**
-	 * <b>Method:</b> equals() <br />
-	 * <b>Purpose:</b> Tests If This Department Is The Same As Another Object
+	 * Tests If This Department Is The Same As Another Object
 	 * @param o
 	 * 	The Object To Test To See If We Are Equal To (Should Be A Department Object)
 	 * @return

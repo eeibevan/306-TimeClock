@@ -21,8 +21,7 @@ public class TimeClockUtil
 
 
     /**
-     * <b>Method:</b> isInt() <br />
-     * <b>Purpose:</b> Determine If A Passed In String May Be Parsed Into An Int
+     * Determine If A Passed In String May Be Parsed Into An Int
      * @param possibleInt
      *  A String To Try To Parse
      * @return
@@ -44,8 +43,7 @@ public class TimeClockUtil
     }
 
     /**
-     * <b>Method:</b> isValidDate() <br />
-     * <b>Purpose:</b> Determine If A Passed In String May Be Parsed Into A SQL Date
+     * Determine If A Passed In String May Be Parsed Into A SQL Date
      * @param possibleDate
      *  A String To Try To Parse
      * @return
@@ -70,8 +68,7 @@ public class TimeClockUtil
     }
 
     /**
-     * <b>Method:</b> isValidTime() <br />
-     * <b>Purpose:</b> Determine If A Passed In String May Be Parsed Into A SQL Time
+     * Determine If A Passed In String May Be Parsed Into A SQL Time
      * @param possibleTime
      *  A String To Try To Parse
      * @return
@@ -96,8 +93,7 @@ public class TimeClockUtil
     }
 
     /**
-     * <b>Method:</b> parseDate() <br />
-     * <b>Purpose:</b> Parses Passed In String Into SQL Date
+     * Parses Passed In String Into SQL Date
      * @param date
      *  A String To Parse
      * @return
@@ -121,8 +117,7 @@ public class TimeClockUtil
     }
 
     /**
-     * <b>Method:</b> parseTime() <br />
-     * <b>Purpose:</b> Parses Passed In String Into SQL Time
+     * Parses Passed In String Into SQL Time
      * @param time
      *  A String To Parse
      * @return
@@ -149,8 +144,7 @@ public class TimeClockUtil
     }
 
     /**
-     * <b>Method:</b> parseTimestamp() <br />
-     * <b>Purpose:</b> Parses Passed In String Into SQL TimeStamp
+     * Parses Passed In String Into SQL TimeStamp
      * @param toStamp
      *  A String To Parse
      * @return

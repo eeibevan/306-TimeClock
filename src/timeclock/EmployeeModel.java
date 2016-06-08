@@ -42,8 +42,7 @@ public class EmployeeModel extends AbstractTableModel
     }
 
     /**
-     * <b>Method:</b> getRowCount() <br />
-     * <b>Purpose:</b> Returns Number Of Rows That Are In The Table
+     * Returns Number Of Rows That Are In The Table
      * @return
      *  Number Of Rows
      */
@@ -54,8 +53,7 @@ public class EmployeeModel extends AbstractTableModel
     }
 
     /**
-     * <b>Method:</b> getColumnCount() <br />
-     * <b>Purpose:</b> Returns Number Of Columns That Are In The Table
+     * Returns Number Of Columns That Are In The Table
      * @return
      *  Number Of Columns
      */
@@ -66,8 +64,7 @@ public class EmployeeModel extends AbstractTableModel
     }
 
     /**
-     * <b>Method:</b> getValueAt() <br />
-     * <b>Purpose:</b> Retrieve A Value At A Specific Location In The Table
+     * Retrieve A Value At A Specific Location In The Table
      * @param rowIndex
      *  The Row The Value Is In
      * @param columnIndex
@@ -97,8 +94,7 @@ public class EmployeeModel extends AbstractTableModel
     }
 
     /**
-     * <b>Method:</b> updateList() <br />
-     * <b>Purpose:</b> Refreshes The Stored Data, And Informs The Table That We Did So
+     * Refreshes The Stored Data, And Informs The Table That We Did So
      */
     public void updateList()
     {

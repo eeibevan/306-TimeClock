@@ -45,8 +45,7 @@ public class EmployeeHourLogTable extends JPanel
 	}
 
 	/**
-	 * <b>Method:</b> updateTable() <br />
-	 * <b>Purpose:</b> Refreshes Table Data With That In The Database
+	 * Refreshes Table Data With That In The Database
 	 */
 	public void updateTable()
 	{

@@ -8,23 +8,13 @@ import java.awt.event.ActionListener;
 
 /**
  * @author Evan Black & Liz Stanton
- * Purpose: Panel Containing Add, Edit, And Delete Buttons For Interfacing With Tables
+ * Panel Containing Add, Edit, And Delete Buttons For Interfacing With Tables
  */
 public class AddEditDeleteButtons extends JPanel
 {
-	/**
-	 * Add Button
-	 */
+
 	private JButton btnAdd;
-
-	/**
-	 * Edit Button
-	 */
 	private JButton btnEdit;
-
-	/**
-	 * Delete Button
-	 */
 	private JButton btnDelete;
 
 	/**
@@ -33,8 +23,8 @@ public class AddEditDeleteButtons extends JPanel
 	private TableFrame tableCaller;
 
 	/**
-	 * Default Constructor <br />
-	 * <b>Purpose:</b>  Adds Buttons, And Listener, But With NO REFERENCE TO A TABLE TO EDIT
+	 * Default Constructor
+	 * Adds Buttons, And Listener, But With NO REFERENCE TO A TABLE TO EDIT
 	 */
 	public AddEditDeleteButtons()
 	{
@@ -72,8 +62,8 @@ public class AddEditDeleteButtons extends JPanel
 	}
 
 	/**
-	 * Overloaded Constructor <br />
-	 * <b>Purpose:</b>  Sets Up Buttons, Listeners, And Attaches The Table To Edit
+	 * Overloaded Constructor
+	 * Sets Up Buttons, Listeners, And Attaches The Table To Edit
 	 * @param tableCaller
 	 * 		The Table To Be Edited By The Buttons
      */
@@ -88,8 +78,7 @@ public class AddEditDeleteButtons extends JPanel
 
 
 	/**
-	 * <b>Method:</b> openAddDialog() <br />
-	 * <b>Purpose:</b>  Calls tableCaller's openAddDialog Method,
+	 * Calls tableCaller's openAddDialog Method,
 	 * 						May Be Expanded To Do Other Things
 	 */
 	private void openAddDialog()
@@ -98,8 +87,7 @@ public class AddEditDeleteButtons extends JPanel
 	}
 
 	/**
-	 * <b>Method:</b> openEditDialog() <br />
-	 * <b>Purpose:</b>  Calls tableCaller's openEditDialog Method,
+	 * Calls tableCaller's openEditDialog Method,
 	 * 						May Be Expanded To Do Other Things
 	 */
 	private void openEditDialog()
@@ -108,8 +96,7 @@ public class AddEditDeleteButtons extends JPanel
 	}
 
 	/**
-	 * <b>Method:</b> deleteItem() <br />
-	 * <b>Purpose:</b>  Calls tableCaller's deleteItem Method,
+	 * Calls tableCaller's deleteItem Method,
 	 * 						May Be Expanded To Do Other Things
 	 */
 	private void deleteItem()
@@ -119,7 +106,7 @@ public class AddEditDeleteButtons extends JPanel
 
 
 	/**
-	 * Inner Class To Handle Button Presses <br />
+	 * Inner Class To Handle Button Presses
 	 * Hands Off Control To Add/Edit/Delete Methods After Clicking
 	 */
 	private class ButtonListener implements ActionListener

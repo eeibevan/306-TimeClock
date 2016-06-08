@@ -113,8 +113,7 @@ public class EmployeeHourLogAddEditGUI extends JDialog
 	}
 
 	/**
-	 * <b>Method:</b> setWindowTitle() <br />
-	 * <b>Purpose:</b>  Sets The Window Title Based On If This Is A New Hour, Or We Re Editing One
+	 * Sets The Window Title Based On If This Is A New Hour, Or We Re Editing One
 	 */
 	private void setWindowTitle()
 	{
@@ -129,8 +128,7 @@ public class EmployeeHourLogAddEditGUI extends JDialog
 	}
 
 	/**
-	 * <b>Method:</b> setUpGUI() <br />
-	 * <b>Purpose:</b>  Sets The Graphical Components, Adds Listeners
+	 * Sets The Graphical Components, Adds Listeners
 	 */
 	private void setUpGUI()
 	{
@@ -259,8 +257,7 @@ public class EmployeeHourLogAddEditGUI extends JDialog
 	}
 
 	/**
-	 * <b>Method:</b> verifyTextFields() <br />
-	 * <b>Purpose:</b> Assures That The Values Currently In The Text Fields Are Valid,
+	 *  Purpose: Assures That The Values Currently In The Text Fields Are Valid,
 	 * 	Notifies The User And Returns false If They Are Not
 	 *
 	 * 	@return
@@ -326,8 +323,7 @@ public class EmployeeHourLogAddEditGUI extends JDialog
 	}
 
 	/**
-	 * <b>Method:</b> performAddEdit() <br />
-	 * <b>Purpose:</b> Validates, Then Commits The Form Data To The Database
+	 * Purpose: Validates, Then Commits The Form Data To The Database
 	 */
 	private void performAddEdit()
 	{
