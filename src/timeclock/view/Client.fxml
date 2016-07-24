@@ -12,14 +12,14 @@
   <children>
     <GridPane layoutX="0.0" layoutY="0.0" maxHeight="140.0" maxWidth="320.0" minHeight="140.0" minWidth="320.0" prefHeight="140.0" prefWidth="320.0">
       <children>
-        <Label alignment="CENTER_RIGHT" maxWidth="99.0" minWidth="70.0" prefWidth="99.0" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Label fx:id="lblPassword" alignment="CENTER_RIGHT" maxWidth="99.0" minWidth="70.0" prefWidth="99.0" text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <font>
             <Font size="16.0" fx:id="x1" />
           </font>
         </Label>
-        <Label alignment="CENTER_RIGHT" font="$x1" maxWidth="99.0" minWidth="70.0" prefWidth="99.0" text="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField alignment="CENTER_RIGHT" maxWidth="201.0" minWidth="140.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-        <TextField alignment="CENTER_RIGHT" maxWidth="201.0" minWidth="140.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+        <Label fx:id="lblUsername" alignment="CENTER_RIGHT" font="$x1" maxWidth="99.0" minWidth="70.0" prefWidth="99.0" text="Username:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="txtfieldUsername" alignment="CENTER_RIGHT" maxWidth="201.0" minWidth="140.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+        <TextField fx:id="txtfeildPassword" alignment="CENTER_RIGHT" maxWidth="201.0" minWidth="140.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
