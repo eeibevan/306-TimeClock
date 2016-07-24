@@ -4,7 +4,8 @@
 bin/
 
 # Intellij Files
-.idea/
+.idea/workspace.xml
+.idea/tasks.xml
 
 # Eclipse IDE Files #
 *.classpath
