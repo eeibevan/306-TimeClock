@@ -3,7 +3,8 @@
 # Ignore Compiled Binaries
 bin/
 
-
+# Intellij Files
+.idea/
 
 # Eclipse IDE Files #
 *.classpath
