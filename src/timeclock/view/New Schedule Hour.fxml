@@ -14,24 +14,15 @@
       <children>
         <GridPane minHeight="196.0" prefHeight="196.0" prefWidth="420.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <children>
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="End:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <ChoiceBox maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
-              <items>
-                <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="Item 1" />
-                  <String fx:value="Item 2" />
-                  <String fx:value="Item 3" />
-                </FXCollections>
-              </items>
-            </ChoiceBox>
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="ID:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Start:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <Label id="lbl" fx:id="lblName" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label id="lbl" fx:id="lblEndTime" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="End:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label id="lbl" fx:id="lblID" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="ID:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label id="lbl" fx:id="lblDay" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label id="lbl" fx:id="btnStartTime" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Start:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="btnID" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
             <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <ChoiceBox maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <TextField fx:id="btnEndTime" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cBoxName" maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -39,7 +30,16 @@
                   <String fx:value="Item 3" />
                 </FXCollections>
               </items>
-            </ChoiceBox>
+            </ComboBox>
+            <ComboBox fx:id="cBoxDay" maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="210.0" prefWidth="210.0" />
@@ -53,8 +53,8 @@
             <RowConstraints maxHeight="42.0" minHeight="42.0" prefHeight="42.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
-        <Button mnemonicParsing="false" text="Finish" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-        <Label text="Shift" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+        <Button fx:id="btnFinish" mnemonicParsing="false" text="Finish" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+        <Label fx:id="lblTitle" text="Shift" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
           <font>
             <Font size="17.0" />
           </font>
