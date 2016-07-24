@@ -14,17 +14,17 @@
       <children>
         <GridPane minHeight="196.0" prefHeight="196.0" prefWidth="420.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <children>
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Last Name:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Department:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-            <Label alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Job Code:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <TextField alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <ChoiceBox maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <Label fx:id="lblFirstName" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label fx:id="lblLastName" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Last Name:" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label fx:id="lblID" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Label fx:id="lblEmail" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label fx:id="lblDepartment" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Department:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Label fx:id="lblJobCode" alignment="CENTER_RIGHT" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" text="Job Code:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtfieldFirstName" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <TextField fx:id="txtfieldLastName" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+            <TextField fx:id="txtfieldEmail" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <TextField fx:id="txtfieldID" alignment="CENTER_RIGHT" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <ComboBox id="c" fx:id="cBoxDepartment" maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -32,8 +32,8 @@
                   <String fx:value="Item 3" />
                 </FXCollections>
               </items>
-            </ChoiceBox>
-            <ChoiceBox maxWidth="140.0" minWidth="140.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            </ComboBox>
+            <ComboBox fx:id="cBoxJobCode" maxWidth="138.0" minWidth="138.0" prefWidth="138.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -41,7 +41,7 @@
                   <String fx:value="Item 3" />
                 </FXCollections>
               </items>
-            </ChoiceBox>
+            </ComboBox>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.0" minWidth="210.0" prefWidth="210.0" />
@@ -55,8 +55,8 @@
             <RowConstraints maxHeight="42.0" minHeight="42.0" prefHeight="42.0" vgrow="SOMETIMES" />
           </rowConstraints>
         </GridPane>
-        <Button mnemonicParsing="false" text="Finish" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-        <Label text="Employee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+        <Button fx:id="btnFinish" mnemonicParsing="false" text="Finish" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+        <Label fx:id="lblTitle" text="Employee" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
           <font>
             <Font size="17.0" />
           </font>

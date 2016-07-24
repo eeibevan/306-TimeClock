@@ -46,7 +46,7 @@
                 <Font size="17.0" />
               </font>
             </Label>
-            <ComboBox fx:id="cBoxLeft" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <ComboBox id="cBoxLeft" fx:id="cBoxRight" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
