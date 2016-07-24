@@ -16,14 +16,14 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="350.9999000000025" prefWidth="600.0">
               <children>
-                <TableView layoutX="0.0" layoutY="0.0" prefHeight="350.0" prefWidth="586.0000999999975">
+                <TableView fx:id="tblEmployeeInformation" layoutX="0.0" layoutY="0.0" prefHeight="350.0" prefWidth="586.0000999999975">
                   <columns>
-                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" />
-                    <TableColumn maxWidth="135.0" minWidth="135.0" prefWidth="135.0" text="Email" />
-                    <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="80.0" text="Dept" />
-                    <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="80.0" text="Job" />
+                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" fx:id="colID" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" fx:id="colFirstName" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" fx:id="colLastName" />
+                    <TableColumn maxWidth="135.0" minWidth="135.0" prefWidth="135.0" text="Email" fx:id="colEmail" />
+                    <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="80.0" text="Dept" fx:id="colDept" />
+                    <TableColumn maxWidth="80.0" minWidth="80.0" prefWidth="80.0" text="Job" fx:id="colJob" />
                   </columns>
                 </TableView>
               </children>
@@ -32,7 +32,7 @@
         </ScrollPane>
         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
           <children>
-            <ComboBox GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+            <ComboBox fx:id="cBoxRight" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -41,7 +41,12 @@
                 </FXCollections>
               </items>
             </ComboBox>
-            <ChoiceBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label fx:id="lblTitle" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Employee Information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <font>
+                <Font size="17.0" />
+              </font>
+            </Label>
+            <ComboBox fx:id="cBoxLeft" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -49,12 +54,7 @@
                   <String fx:value="Item 3" />
                 </FXCollections>
               </items>
-            </ChoiceBox>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Employee Information" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
-              <font>
-                <Font size="17.0" />
-              </font>
-            </Label>
+            </ComboBox>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
@@ -67,9 +67,9 @@
         </GridPane>
         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
           <children>
-            <Button mnemonicParsing="false" prefWidth="55.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" prefWidth="55.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="55.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Button fx:id="btnAdd" mnemonicParsing="false" prefWidth="55.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button fx:id="btnEdit" mnemonicParsing="false" prefWidth="55.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="55.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="0" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
