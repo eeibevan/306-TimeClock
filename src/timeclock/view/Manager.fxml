@@ -11,17 +11,17 @@
   <children>
     <GridPane layoutY="0.0" prefHeight="535.0" prefWidth="475.0" AnchorPane.leftAnchor="0.0">
       <children>
-        <Button mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Button mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-        <Button mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Button mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="215.0" text="Schedule" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button fx:id="btnSchedule" mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Button id="btnEmployeeInformation" fx:id="btnEmployee" mnemonicParsing="false" onAction="#null" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+        <Button fx:id="btnHourLog" mnemonicParsing="false" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button fx:id="btnReport" mnemonicParsing="false" onAction="#lblReport" prefHeight="215.0" prefWidth="215.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+        <Label fx:id="lblSchedule" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="215.0" text="Schedule" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <font>
             <Font size="15.0" fx:id="x1" />
           </font>
         </Label>
-        <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="30.0" prefWidth="215.0" text="Employee Information" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-        <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="30.0" prefWidth="215.0" text="Hourlog" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label fx:id="lblEmployee" alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="30.0" prefWidth="215.0" text="Employee Information" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <Label fx:id="lblHourLog" alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="30.0" prefWidth="215.0" text="Hourlog" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
         <Label alignment="CENTER" contentDisplay="CENTER" font="$x1" prefHeight="30.0" prefWidth="215.0" text="Report" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       </children>
       <columnConstraints>
