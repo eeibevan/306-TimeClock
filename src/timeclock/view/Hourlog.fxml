@@ -16,11 +16,11 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="350.9999000000025" prefWidth="291.0">
               <children>
-                <TableView layoutX="0.0" layoutY="0.0" prefHeight="355.0" prefWidth="291.0">
+                <TableView fx:id="tblEmployeeInformation" layoutX="0.0" layoutY="0.0" prefHeight="355.0" prefWidth="291.0">
                   <columns>
-                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" />
+                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" fx:id="lblID" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" fx:id="lblFirstName" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" fx:id="lblLastName" />
                   </columns>
                 </TableView>
               </children>
@@ -29,7 +29,7 @@
         </ScrollPane>
         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
           <children>
-            <ComboBox GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+            <ComboBox fx:id="cBoxRight" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -38,7 +38,12 @@
                 </FXCollections>
               </items>
             </ComboBox>
-            <ChoiceBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label fx:id="lblTitle" alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Hour Log" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+              <font>
+                <Font size="17.0" />
+              </font>
+            </Label>
+            <ComboBox id="cBoxRight" fx:id="cBoxLeft" GridPane.columnIndex="0" GridPane.rowIndex="0">
               <items>
                 <FXCollections fx:factory="observableArrayList">
                   <String fx:value="Item 1" />
@@ -46,12 +51,7 @@
                   <String fx:value="Item 3" />
                 </FXCollections>
               </items>
-            </ChoiceBox>
-            <Label alignment="CENTER" prefHeight="30.0" prefWidth="200.0" text="Hour Log" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
-              <font>
-                <Font size="17.0" />
-              </font>
-            </Label>
+            </ComboBox>
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
@@ -64,9 +64,9 @@
         </GridPane>
         <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
           <children>
-            <Button mnemonicParsing="false" prefWidth="55.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Button mnemonicParsing="false" prefWidth="55.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="55.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <Button fx:id="btnAdd" mnemonicParsing="false" prefWidth="55.0" text="Add" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button fx:id="btnEdit" mnemonicParsing="false" prefWidth="55.0" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="55.0" text="Delete" GridPane.columnIndex="2" GridPane.rowIndex="0" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="65.0" minWidth="65.0" prefWidth="65.0" />
@@ -81,11 +81,11 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="350.9999000000025" prefWidth="291.0">
               <children>
-                <TableView layoutX="-17.0" layoutY="0.0" prefHeight="355.0" prefWidth="308.0">
+                <TableView fx:id="tblHourLog" layoutX="-17.0" layoutY="0.0" prefHeight="355.0" prefWidth="308.0">
                   <columns>
-                    <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Name" />
-                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time In" />
-                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time Out" />
+                    <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Name" fx:id="lblName" />
+                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time In" fx:id="lblTimeIn" />
+                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time Out" fx:id="lblTimeOut" />
                   </columns>
                 </TableView>
               </children>
