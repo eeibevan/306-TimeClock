@@ -18,9 +18,9 @@
               <children>
                 <TableView fx:id="tblEmployeeInformation" layoutX="0.0" layoutY="0.0" prefHeight="355.0" prefWidth="291.0">
                   <columns>
-                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" fx:id="lblID" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" fx:id="lblFirstName" />
-                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" fx:id="lblLastName" />
+                    <TableColumn maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" fx:id="colID" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="First Name" fx:id="colFirstName" />
+                    <TableColumn maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Last Name" fx:id="colLastName" />
                   </columns>
                 </TableView>
               </children>
@@ -83,9 +83,9 @@
               <children>
                 <TableView fx:id="tblHourLog" layoutX="-17.0" layoutY="0.0" prefHeight="355.0" prefWidth="308.0">
                   <columns>
-                    <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Name" fx:id="lblName" />
-                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time In" fx:id="lblTimeIn" />
-                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time Out" fx:id="lblTimeOut" />
+                    <TableColumn maxWidth="110.0" minWidth="110.0" prefWidth="110.0" text="Name" fx:id="colName" />
+                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time In" fx:id="colTimeIn" />
+                    <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Time Out" fx:id="colTimeOut" />
                   </columns>
                 </TableView>
               </children>
@@ -101,7 +101,7 @@
       <rowConstraints>
         <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="410.0" minHeight="15.0" prefHeight="355.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="410.0" minHeight="15.0" prefHeight="351.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
       </rowConstraints>
